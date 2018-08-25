@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "72661A422108639D001A3BC7"
-               BuildableName = "RandomChat.app"
+               BuildableName = "Talky Talky.app"
                BlueprintName = "RandomChat"
                ReferencedContainer = "container:RandomChat.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "72661A422108639D001A3BC7"
-            BuildableName = "RandomChat.app"
+            BuildableName = "Talky Talky.app"
             BlueprintName = "RandomChat"
             ReferencedContainer = "container:RandomChat.xcodeproj">
          </BuildableReference>
@@ -56,12 +56,17 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "72661A422108639D001A3BC7"
-            BuildableName = "RandomChat.app"
+            BuildableName = "Talky Talky.app"
             BlueprintName = "RandomChat"
             ReferencedContainer = "container:RandomChat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
+         <AdditionalOption
+            key = "MallocStackLogging"
+            value = ""
+            isEnabled = "YES">
+         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -75,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "72661A422108639D001A3BC7"
-            BuildableName = "RandomChat.app"
+            BuildableName = "Talky Talky.app"
             BlueprintName = "RandomChat"
             ReferencedContainer = "container:RandomChat.xcodeproj">
          </BuildableReference>

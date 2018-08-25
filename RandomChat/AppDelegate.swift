@@ -7,15 +7,48 @@
 //
 
 import UIKit
+import XCGLogger
+
+let logger = XCGLogger.default
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        logger.setup(level: XCGLogger.Level.debug, showLogIdentifier: false, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: nil, fileLevel: nil)
+        
+        //Create the logger file
+        var documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        documentPath.append("/loggerFile.txt")
+        
+        let fileDestination = FileDestination(writeToFile: documentPath, identifier: "advancedLogger.fileDestination")
+        
+        // Optionally set some configuration options
+        fileDestination.outputLevel = .debug
+        fileDestination.showLogIdentifier = false
+        fileDestination.showFunctionName = true
+        fileDestination.showThreadName = true
+        fileDestination.showLevel = true
+        fileDestination.showFileName = true
+        fileDestination.showLineNumber = true
+        fileDestination.showDate = true
+        
+        // Process this destination in the background
+        fileDestination.logQueue = XCGLogger.logQueue
+        
+        // Add the destination to the logger
+        logger.add(destination: fileDestination)
+
+        // Add basic app info, version info etc, to the start of the logs
+        logger.logAppDetails()
+        
+        //lock the orientation
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        
         return true
     }
 
@@ -35,10 +68,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        logger.info("Application Did Become Active---")
+        //TCPConnectionService.sharedInstance.establishTCPConnection()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        logger.info("App is being killed - closing tcp connection")
+        TCPConnectionService.sharedInstance.closeTCPConnection()
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return .portrait
     }
 
 
