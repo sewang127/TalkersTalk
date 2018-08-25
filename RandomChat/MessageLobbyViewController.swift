@@ -34,7 +34,6 @@ class MessageLobbyViewController: UIViewController {
         MessagingResponseAPIs.sharedInstance.lobbyDelegate = self
         self.sendRequestForGettingUserNum()
         self.resetLobbyUI(resetLabels: true)
-        print("Change")
     }
     
     override func viewWillDisappear(_ animated: Bool) {

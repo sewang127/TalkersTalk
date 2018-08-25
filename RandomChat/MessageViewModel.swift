@@ -16,10 +16,20 @@ protocol MessageRoomViewPresentable {
     
     func addItem(item: MessageItemViewPresentable)
     func addItem(logid: String, sender: String, message: String, direction: Constants.MessageViewModelDirection)
+    func addNotificationMessage(message: String)
 }
+
+/*
+extension MessageRoomViewPresentable {
+    func addItem(logid: String, sender: String, message: String, direction: Constants.MessageViewModelDirection, isNotificationMessage: Bool = false) {
+        self.addItem(logid: logid, sender: sender, message: message, direction: direction, isNotificationMessage: isNotificationMessage)
+    }
+}
+ */
 
 protocol MessageItemViewPresentable {
     
+    var isNotificationMessage: Bool { get set }
     var direction: Constants.MessageViewModelDirection { get set }
     var sender: String { get set }
     var message: String { get set }
@@ -33,8 +43,27 @@ class MessageRoomViewModel: MessageRoomViewPresentable {
     
     var newItemAddedBlock: (()->())? = nil
     
+    
+    
     init(items: [MessageItemViewPresentable]) {
         self.items = items
+    }
+    
+    init(withInitailNotificationMessages: Bool) {
+        
+        if withInitailNotificationMessages {
+            let strangerName = SocketConnectionManager.sharedInstance.strangerName
+            let myName = SocketConnectionManager.sharedInstance.userName
+            
+            let strangerNotificationMessage = Constants.MessageChatRoomUIWording.HasEnteredNotificationMessage(name: strangerName)
+            let myNotificationMessage = Constants.MessageChatRoomUIWording.HasEnteredNotificationMessage(name: myName)
+            
+            let strangerNotificationMessageItem = MessageItemViewModel(direction: .In, sender: "", message: strangerNotificationMessage, isNotificationMessage: true)
+            let myNotificationMessageItem = MessageItemViewModel(direction: .In, sender: "", message: myNotificationMessage, isNotificationMessage: true)
+            
+            self.items.append(strangerNotificationMessageItem)
+            self.items.append(myNotificationMessageItem)
+        }
     }
     
     func addItem(item: MessageItemViewPresentable) {
@@ -44,7 +73,12 @@ class MessageRoomViewModel: MessageRoomViewPresentable {
     
     func addItem(logid: String, sender: String, message: String, direction: Constants.MessageViewModelDirection) {
         let direction = direction
-        let itemVM = MessageItemViewModel(direction: direction, sender: sender, message: message)
+        let itemVM = MessageItemViewModel(direction: direction, sender: sender, message: message, isNotificationMessage: false)
+        self.addItem(item: itemVM)
+    }
+    
+    func addNotificationMessage(message: String) {
+        let itemVM = MessageItemViewModel(direction: .In, sender: "", message: message, isNotificationMessage: true)
         self.addItem(item: itemVM)
     }
     
@@ -76,16 +110,18 @@ class MessageRoomViewModel: MessageRoomViewPresentable {
 
 class MessageItemViewModel: MessageItemViewPresentable {
     
+    var isNotificationMessage: Bool
     var direction: Constants.MessageViewModelDirection
     var sender: String
     var message: String
     var date: Date
     
-    init(direction: Constants.MessageViewModelDirection, sender: String, message: String) {
+    init(direction: Constants.MessageViewModelDirection, sender: String, message: String, isNotificationMessage: Bool = false) {
         self.direction = direction
         self.sender = sender
         self.message = message
         self.date = Date()
+        self.isNotificationMessage = isNotificationMessage
     }
 }
 

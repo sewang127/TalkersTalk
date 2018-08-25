@@ -52,6 +52,7 @@ class Constants {
     enum TableViewCellIdentifiers: String {
         case MessageRoomIncomingTableViewCell = "MessageRoomIncomingTableViewCell"
         case MessageRoomOutgoingTableViewCell = "MessageRoomOutgoingTableViewCell"
+        case MessageRoomNotificationTableViewCell = "MessageRoomNotificationTableViewCell"
     }
     
     
@@ -64,6 +65,12 @@ class Constants {
         case ConnectionLabelMatchFound = "Found a match!"
         case ConnectionLabelRetry = "No match found. Please retry later"
     }
+    
+    
+    struct MessageChatRoomUIWording {
+        static func HasEnteredNotificationMessage(name: String) -> String { return "\"\(name)\" has entered the chat room"}
+    }
+    
     
     //For Messaging response apis
     enum MessagingResponseStatus: String {

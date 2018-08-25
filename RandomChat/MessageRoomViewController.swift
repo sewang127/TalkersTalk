@@ -28,6 +28,8 @@ class MessageRoomViewController: UIViewController {
         
         self.setupKeyboardNotification()
         
+        MessagingResponseAPIs.sharedInstance.chatRoomDelegate = self
+        
         //Set tap gesture
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerTapped(sender:)))
         self.tableView.addGestureRecognizer(tapGestureRecognizer)
@@ -43,8 +45,10 @@ class MessageRoomViewController: UIViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.register(UINib(nibName: Constants.TableViewCellIdentifiers.MessageRoomIncomingTableViewCell.rawValue, bundle: nil), forCellReuseIdentifier: Constants.TableViewCellIdentifiers.MessageRoomIncomingTableViewCell.rawValue)
         self.tableView.register(UINib(nibName: Constants.TableViewCellIdentifiers.MessageRoomOutgoingTableViewCell.rawValue, bundle: nil), forCellReuseIdentifier: Constants.TableViewCellIdentifiers.MessageRoomOutgoingTableViewCell.rawValue)
+        self.tableView.register(UINib(nibName: Constants.TableViewCellIdentifiers.MessageRoomNotificationTableViewCell.rawValue, bundle: nil), forCellReuseIdentifier: Constants.TableViewCellIdentifiers.MessageRoomNotificationTableViewCell.rawValue)
 
-        self.viewModel = MessageRoomViewModel(items: [])
+        //setup viewModel
+        self.viewModel = MessageRoomViewModel(withInitailNotificationMessages: true)
         self.viewModel?.newItemAddedBlock = { [weak self] in
             logger.info("ViewController is getting reloaded as a new item was introduced")
             self?.tableView.reloadData()
@@ -57,7 +61,10 @@ class MessageRoomViewController: UIViewController {
             }
         }
         
-        MessagingResponseAPIs.sharedInstance.chatRoomDelegate = self
+        //Add notification messages that show who entered the chat
+        
+        
+        
         //MessagingResponseAPIs.sharedInstance.addListener(listener: self)
         
         /*
@@ -161,7 +168,6 @@ extension MessageRoomViewController: CustomMessageTextViewDelegate {
         
         //update vm as well
         self.viewModel?.addItem(logid: "", sender: "", message: message, direction: Constants.MessageViewModelDirection.Out)
-        
     }
     
 }
@@ -190,26 +196,43 @@ extension MessageRoomViewController: UITableViewDelegate, UITableViewDataSource 
         
         let item = self.viewModel!.items[index]
         
+        //Creating Notification Message
+        if item.isNotificationMessage {
+            cell = self.tableView.dequeueReusableCell(withIdentifier: Constants.TableViewCellIdentifiers.MessageRoomNotificationTableViewCell.rawValue, for: indexPath)
+            if let cell = cell as? MessageRoomNotificationTableViewCell {
+                let notificationMessage = item.message
+                cell.setNotificationLabel(label: notificationMessage)
+            }
+            
+            cell.backgroundColor = nil
+            return cell
+        }
+        
         var date: Date?
         
         if index == 0 {
             date = item.date //If Index is 0, display date
         } else {
+            
             //If index is 1 or more, compare with previous message date and display date only if there is a minute or more difference
             let previousMessageDate = self.viewModel!.items[index-1].date
             let currentMessageDate = item.date
             
-            if previousMessageDate.timeIntervalSince1970 < currentMessageDate.timeIntervalSince1970 {
-                //Check if it's at least a minute late
-                let calendar = Calendar.current
-                let originalMinute = calendar.component(Calendar.Component.minute, from: previousMessageDate)
-                let newMinute = calendar.component(Calendar.Component.minute, from: currentMessageDate)
-                
-                if originalMinute != newMinute {
-                    date = currentMessageDate
+            //Make sure the previous message is not notification message
+            if self.viewModel!.items[index-1].isNotificationMessage == true {
+                date = currentMessageDate
+            } else {
+                if previousMessageDate.timeIntervalSince1970 < currentMessageDate.timeIntervalSince1970 {
+                    //Check if it's at least a minute late
+                    let calendar = Calendar.current
+                    let originalMinute = calendar.component(Calendar.Component.minute, from: previousMessageDate)
+                    let newMinute = calendar.component(Calendar.Component.minute, from: currentMessageDate)
+                    
+                    if originalMinute != newMinute {
+                        date = currentMessageDate
+                    }
                 }
             }
-            
         }
         
         let message = item.message

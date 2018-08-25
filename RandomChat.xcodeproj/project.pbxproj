@@ -39,6 +39,8 @@
 		72806BA2212C70DC00DEB911 /* CustomMessageTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72806BA1212C70DC00DEB911 /* CustomMessageTextView.xib */; };
 		72806BA5212DD1D600DEB911 /* MessageRoomOutgoingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72806BA3212DD1D600DEB911 /* MessageRoomOutgoingTableViewCell.swift */; };
 		72806BA6212DD1D600DEB911 /* MessageRoomOutgoingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72806BA4212DD1D600DEB911 /* MessageRoomOutgoingTableViewCell.xib */; };
+		72806BAA2131A46800DEB911 /* MessageRoomNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72806BA82131A46800DEB911 /* MessageRoomNotificationTableViewCell.swift */; };
+		72806BAB2131A46800DEB911 /* MessageRoomNotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72806BA92131A46800DEB911 /* MessageRoomNotificationTableViewCell.xib */; };
 		72D3503C21289E850057481B /* SocketConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D3503B21289E850057481B /* SocketConnectionManager.swift */; };
 		72D3504921291FC60057481B /* PaddingUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D3504821291FC60057481B /* PaddingUILabel.swift */; };
 /* End PBXBuildFile section */
@@ -193,6 +195,8 @@
 		72806BA1212C70DC00DEB911 /* CustomMessageTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMessageTextView.xib; sourceTree = "<group>"; };
 		72806BA3212DD1D600DEB911 /* MessageRoomOutgoingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRoomOutgoingTableViewCell.swift; sourceTree = "<group>"; };
 		72806BA4212DD1D600DEB911 /* MessageRoomOutgoingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageRoomOutgoingTableViewCell.xib; sourceTree = "<group>"; };
+		72806BA82131A46800DEB911 /* MessageRoomNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRoomNotificationTableViewCell.swift; sourceTree = "<group>"; };
+		72806BA92131A46800DEB911 /* MessageRoomNotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageRoomNotificationTableViewCell.xib; sourceTree = "<group>"; };
 		72D3503B21289E850057481B /* SocketConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketConnectionManager.swift; sourceTree = "<group>"; };
 		72D3504821291FC60057481B /* PaddingUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingUILabel.swift; sourceTree = "<group>"; };
 		791CAD890C74A4552B853F9F /* Pods-RandomChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RandomChat/Pods-RandomChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -389,6 +393,8 @@
 				723DBABD2125B5F000EAE796 /* MessageRoomIncomingTableViewCell.xib */,
 				72806BA3212DD1D600DEB911 /* MessageRoomOutgoingTableViewCell.swift */,
 				72806BA4212DD1D600DEB911 /* MessageRoomOutgoingTableViewCell.xib */,
+				72806BA82131A46800DEB911 /* MessageRoomNotificationTableViewCell.swift */,
+				72806BA92131A46800DEB911 /* MessageRoomNotificationTableViewCell.xib */,
 			);
 			name = ChatRoom;
 			sourceTree = "<group>";
@@ -583,6 +589,7 @@
 				72806BA2212C70DC00DEB911 /* CustomMessageTextView.xib in Resources */,
 				723DBABF2125B5F000EAE796 /* MessageRoomIncomingTableViewCell.xib in Resources */,
 				7205B951212BC3400008765A /* UserNameView.xib in Resources */,
+				72806BAB2131A46800DEB911 /* MessageRoomNotificationTableViewCell.xib in Resources */,
 				72806BA6212DD1D600DEB911 /* MessageRoomOutgoingTableViewCell.xib in Resources */,
 				72661A4C2108639D001A3BC7 /* Main.storyboard in Resources */,
 			);
@@ -663,6 +670,7 @@
 				725B1C4521134ACD00955971 /* MessageLobbyViewController.swift in Sources */,
 				725B1C432110932A00955971 /* CustomNotificationName.swift in Sources */,
 				725B1C47211358E200955971 /* MessageLobbyViewModel.swift in Sources */,
+				72806BAA2131A46800DEB911 /* MessageRoomNotificationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
