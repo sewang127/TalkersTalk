@@ -10,6 +10,7 @@ import UIKit
 
 class MessageRoomViewController: UIViewController {
 
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var leavePopUpLabel: UILabel!
     @IBOutlet weak var customMessageTextView: CustomMessageTextView!
@@ -29,13 +30,26 @@ class MessageRoomViewController: UIViewController {
         self.setupKeyboardNotification()
         
         MessagingResponseAPIs.sharedInstance.chatRoomDelegate = self
+       
+        self.topView.layoutIfNeeded()
+        let topColor = UIColor.white
+        let bottomColor = UIColor(displayP3Red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        
+        let gradientLayer = GradientColorMaker.createGradientColorLayer(topColor: topColor, bottomColor: bottomColor, bound: self.topView.bounds)
+        
+        self.topView.layer.shadowColor = UIColor.black.cgColor
+        self.topView.layer.shadowOpacity = 0.8
+        self.topView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        
+        self.topView.layer.insertSublayer(gradientLayer, at: 0)
+        self.topView.backgroundColor = UIColor.clear
         
         //Set tap gesture
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerTapped(sender:)))
         self.tableView.addGestureRecognizer(tapGestureRecognizer)
         
         let tableViewImageView = UIImageView(frame: self.tableView.bounds)
-        tableViewImageView.image = UIImage(named: "ChatRoomBackground")
+        tableViewImageView.image = UIImage(named: "SplashScreenBackground1")
         self.tableView.backgroundView = tableViewImageView
         self.tableView.delegate = self
         self.tableView.dataSource = self

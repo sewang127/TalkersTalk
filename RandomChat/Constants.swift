@@ -8,7 +8,7 @@
 
 //List of enum/constant variables
 
-class Constants {
+struct Constants {
     
     static let messageSizeLimitInByte = 1000
     
@@ -58,7 +58,7 @@ class Constants {
     
     //For UI Labeling
     enum MessageLobbyViewLabels: String {
-        case ConnectionButtonMatch = "Match"
+        case ConnectionButtonMatch = "Join Chat"
         case ConnectionButtonCancel = "Cancel"
         case ConnectionLabelMatching = "Matching with other user..."
         case ConnectionLabelWaiting = "Waiting for other user"
@@ -69,6 +69,12 @@ class Constants {
     
     struct MessageChatRoomUIWording {
         static func HasEnteredNotificationMessage(name: String) -> String { return "\"\(name)\" has entered the chat room"}
+    }
+    
+    struct MessageLobbyUIWording {
+        static func CurrentName(name: String) -> String {
+            return "Current Name: \(name)"
+        }
     }
     
     

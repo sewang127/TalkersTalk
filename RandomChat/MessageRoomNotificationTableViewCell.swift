@@ -15,6 +15,10 @@ class MessageRoomNotificationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone {
+            print("Current device is Phone type")
+            self.notificationLabel.font = self.notificationLabel.font.withSize(12.0)
+        }
     }
     
     override func prepareForReuse() {
@@ -28,6 +32,7 @@ class MessageRoomNotificationTableViewCell: UITableViewCell {
     }
     
     func setNotificationLabel(label: String) {
+        //Change the font size accordinf to device type
         self.notificationLabel.text = label
     }
     

@@ -30,7 +30,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAM-av-rXC">
                     <rect key="frame" x="315" y="7.5" width="50" height="40"/>
-                    <color key="backgroundColor" red="1" green="0.79333521880000002" blue="0.49517764650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="1" green="0.73424317283885787" blue="0.2347657411826346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="3hO-y0-ya0"/>
                         <constraint firstAttribute="height" constant="40" id="4kz-HB-3YN"/>

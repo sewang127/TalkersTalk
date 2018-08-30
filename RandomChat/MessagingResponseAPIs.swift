@@ -107,6 +107,7 @@ class MessagingResponseAPIs: TCPConnectionServiceDelegate {
     
     func receivedServerHasNoRoom() {
         logger.info("Received server has no room response")
+        ViewControllerRouter.displayAlertController(title: "Connection Rejected", message: "Too many people are using the app. Please retry later.", blockToExecute: { _ in })
     }
     
 }

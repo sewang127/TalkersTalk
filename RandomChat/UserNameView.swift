@@ -44,7 +44,43 @@ class UserNameView: UIView {
     }
     
     func setupView() {
+        
+        self.userNameTextField.delegate = self
         self.userNameDescriptionLabel.text = "Please Enter the user name that you will be using. \n(You can change the name anytime)"
+        
+        self.userNameDescriptionLabel.layer.shadowColor = UIColor.black.cgColor
+        self.userNameDescriptionLabel.layer.shadowOpacity = 1
+        self.userNameDescriptionLabel.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        
+        //Change the font size accordinf to device type
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone {
+            print("Current device is Phone type")
+            self.userNameDescriptionLabel.font = self.userNameDescriptionLabel.font.withSize(12.0)
+        } else {
+            print("Current device is ipad type")
+            self.userNameDescriptionLabel.font = self.userNameDescriptionLabel.font.withSize(17.0)
+        }
+        
+        
+    }
+    
+    func setupGradientColorAndShadow(bound: CGRect) {
+        var (r1, g1, b1, a1): (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+        let topColor = self.view!.backgroundColor!
+        topColor.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
+        let bottomColor = UIColor(displayP3Red: r1*0.8 , green: g1*0.8, blue: b1*0.8, alpha: 1)
+        
+        let gradientLayer = GradientColorMaker.createGradientColorLayer(topColor: topColor, bottomColor: bottomColor, bound: bound)
+        self.view?.layer.insertSublayer(gradientLayer, at: 0)
+        self.view?.backgroundColor = UIColor.clear
+        self.view?.clipsToBounds = false
+        
+        gradientLayer.cornerRadius = 15
+        
+        //Setup shadow
+        self.view?.layer.shadowColor = UIColor.black.cgColor
+        self.view?.layer.shadowOpacity = 0.8
+        self.view?.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
     }
     
     @IBAction func onConfirmBtnClicked(_ sender: Any) {
@@ -62,4 +98,13 @@ class UserNameView: UIView {
         self.delegate?.onConfirmBtnClicked(userName: userName)
     }
     
+}
+
+extension UserNameView: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.text?.count ?? 0 > 20 || string.count > 20 {
+            return false
+        }
+        return true
+    }
 }

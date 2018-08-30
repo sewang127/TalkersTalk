@@ -62,6 +62,8 @@ class CustomMessageTextView: UIView {
         }
         
         self.messageTextView.text = ""
+        self.sendButton.isEnabled = false
+        self.sendButton.alpha = 0.6
         
         self.delegate?.onSendBtnClicked(message: message)
     }

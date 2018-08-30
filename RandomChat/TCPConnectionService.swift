@@ -136,41 +136,26 @@ extension TCPConnectionService: StreamDelegate {
             break
         case Stream.Event.errorOccurred:
             logger.info("Error occurred")
-            let topVC = ViewControllerRouter.getTopDisplayingVC()
             
-            let alertController = UIAlertController(title: "Error", message: "Server connection failed. Please retry later", preferredStyle: UIAlertControllerStyle.alert)
-            let cancelAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
-                ViewControllerRouter.moveToSplashScreen(currentVC: topVC)
+            ViewControllerRouter.displayAlertController(title: "Connection Failed", message: "Server connection failed", blockToExecute: { currentVC in
+                ViewControllerRouter.moveToSplashScreen(currentVC: currentVC)
             })
-            
-            alertController.addAction(cancelAction)
             
             self.inputStream?.close()
             self.outputStream?.close()
             self.connectionState = .NotConnected
             
-            DispatchQueue.main.async {
-                topVC.present(alertController, animated: false, completion: nil)
-            }
             break
         case Stream.Event.endEncountered:
-            logger.info("endEncountered")
-            let topVC = ViewControllerRouter.getTopDisplayingVC()
+            logger.info("endEncountered - socket connection closed")
             
-            let alertController = UIAlertController(title: "Error", message: "Server connection failed. Please retry later", preferredStyle: UIAlertControllerStyle.alert)
-            let cancelAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
-                ViewControllerRouter.moveToSplashScreen(currentVC: topVC)
+            ViewControllerRouter.displayAlertController(title: "Connection Lost", message: "Server connection was lost", blockToExecute: { currentVC in
+                ViewControllerRouter.moveToSplashScreen(currentVC: currentVC)
             })
-            
-            alertController.addAction(cancelAction)
             
             self.inputStream?.close()
             self.outputStream?.close()
             self.connectionState = .NotConnected
-            
-            DispatchQueue.main.async {
-                topVC.present(alertController, animated: false, completion: nil)
-            }
             
             break
         default:

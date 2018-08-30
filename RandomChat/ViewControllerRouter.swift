@@ -56,6 +56,25 @@ class ViewControllerRouter {
         logger.info("Dismiss all modally presented view controllers and go to splash screen vc")
         rootVC.dismiss(animated: false, completion: nil)
         
+        if let splashVC = rootVC as? SplashScreenViewController {
+            splashVC.resetUIComponents()
+        }
+    }
+    
+    static func displayAlertController(title: String, message: String, blockToExecute: @escaping (_ currentVC: UIViewController)->()) {
+        
+        let topVC = self.getTopDisplayingVC()
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
+            blockToExecute(topVC)
+        })
+        
+        alertController.addAction(cancelAction)
+        
+        DispatchQueue.main.async {
+            topVC.present(alertController, animated: false, completion: nil)
+        }
     }
     
 }

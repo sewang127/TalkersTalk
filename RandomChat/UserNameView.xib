@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserNameView" customModule="RandomChat" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserNameView" customModule="Talky_Talky" customModuleProvider="target">
             <connections>
                 <outlet property="userNameDescriptionLabel" destination="gWG-B2-UTM" id="cO6-dg-JRf"/>
                 <outlet property="userNameTextField" destination="GYM-3E-EUt" id="7bS-NE-djl"/>
@@ -22,17 +22,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description DescriptionDescriptionDescription" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWG-B2-UTM">
-                    <rect key="frame" x="30" y="18" width="315" height="42"/>
-                    <constraints>
-                        <constraint firstAttribute="height" priority="999" constant="42" id="WAD-AH-H1b"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Please Enter the user name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWG-B2-UTM">
+                    <rect key="frame" x="10" y="18" width="355" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GYM-3E-EUt">
-                    <rect key="frame" x="113" y="80" width="150" height="30"/>
+                    <rect key="frame" x="113" y="42.5" width="150" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="VEb-o8-sU1"/>
                         <constraint firstAttribute="width" constant="150" id="Ytf-lm-yuK"/>
@@ -62,7 +59,7 @@
                     </connections>
                 </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name Can't be empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oS5-Ky-K4q">
-                    <rect key="frame" x="10" y="118" width="355" height="19"/>
+                    <rect key="frame" x="10" y="77.5" width="355" height="54.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -70,14 +67,14 @@
             </subviews>
             <color key="backgroundColor" red="0.34973112780452059" green="0.68124372695505708" blue="0.81947969543147203" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="gWG-B2-UTM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="5zD-Xt-19p"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gWG-B2-UTM" secondAttribute="trailing" constant="30" id="6ge-M8-RSo"/>
+                <constraint firstItem="gWG-B2-UTM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="5zD-Xt-19p"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gWG-B2-UTM" secondAttribute="trailing" constant="10" id="6ge-M8-RSo"/>
                 <constraint firstItem="GYM-3E-EUt" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="A3F-9d-iFI"/>
-                <constraint firstItem="GYM-3E-EUt" firstAttribute="top" secondItem="gWG-B2-UTM" secondAttribute="bottom" constant="20" id="CAN-kq-Pe6"/>
+                <constraint firstItem="GYM-3E-EUt" firstAttribute="top" secondItem="gWG-B2-UTM" secondAttribute="bottom" constant="10" id="CAN-kq-Pe6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oS5-Ky-K4q" secondAttribute="trailing" constant="10" id="RPN-G2-CkW"/>
-                <constraint firstItem="oS5-Ky-K4q" firstAttribute="top" secondItem="GYM-3E-EUt" secondAttribute="bottom" constant="8" id="fJB-ny-e6M"/>
+                <constraint firstItem="oS5-Ky-K4q" firstAttribute="top" secondItem="GYM-3E-EUt" secondAttribute="bottom" constant="5" id="fJB-ny-e6M"/>
                 <constraint firstItem="oS5-Ky-K4q" firstAttribute="centerX" secondItem="GYM-3E-EUt" secondAttribute="centerX" id="fOw-oA-qgx"/>
-                <constraint firstItem="utT-jp-z3Y" firstAttribute="top" secondItem="oS5-Ky-K4q" secondAttribute="bottom" constant="5" id="fdk-rz-yoO"/>
+                <constraint firstItem="utT-jp-z3Y" firstAttribute="top" secondItem="oS5-Ky-K4q" secondAttribute="bottom" constant="10" id="fdk-rz-yoO"/>
                 <constraint firstItem="gWG-B2-UTM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="18" id="hch-It-H8z"/>
                 <constraint firstItem="oS5-Ky-K4q" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="tI8-l6-SJP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="utT-jp-z3Y" secondAttribute="bottom" constant="18" id="wSJ-Vr-gWU"/>

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomActivityIndicatorView" customModule="RandomChat" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomActivityIndicatorView" customModule="Talky_Talky" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicatorView" destination="SPJ-SZ-OlK" id="pDs-DF-mAO"/>
                 <outlet property="activityLabel" destination="Y4y-Ng-qbV" id="Y2J-VJ-io8"/>
@@ -31,7 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.66666666666666663" green="0.66654220281862742" blue="0.66735600490196079" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="SPJ-SZ-OlK" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="aAv-gO-Ioi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Y4y-Ng-qbV" secondAttribute="bottom" constant="10" id="ehY-XS-IpS"/>
