@@ -24,9 +24,7 @@
 		7231DE572134D83E00A2C252 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7231DE562134D83E00A2C252 /* UIColor+Extensions.swift */; };
 		7231DE5A2134DBD100A2C252 /* GradientColorMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7231DE592134DBD100A2C252 /* GradientColorMaker.swift */; };
 		7231DE9621378B5A00A2C252 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725B1BEE2109CBD200955971 /* XCGLogger.framework */; };
-		7231DE9721378B5A00A2C252 /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 725B1BEE2109CBD200955971 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7231DE9821378B5A00A2C252 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725B1BEB2109CBD200955971 /* ObjcExceptionBridging.framework */; };
-		7231DE9921378B5A00A2C252 /* ObjcExceptionBridging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 725B1BEB2109CBD200955971 /* ObjcExceptionBridging.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		723DBABE2125B5F000EAE796 /* MessageRoomIncomingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723DBABC2125B5F000EAE796 /* MessageRoomIncomingTableViewCell.swift */; };
 		723DBABF2125B5F000EAE796 /* MessageRoomIncomingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 723DBABD2125B5F000EAE796 /* MessageRoomIncomingTableViewCell.xib */; };
 		725B1C23210C7E8100955971 /* TCPMessageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725B1C22210C7E8100955971 /* TCPMessageParser.swift */; };
@@ -166,8 +164,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7231DE9921378B5A00A2C252 /* ObjcExceptionBridging.framework in Embed Frameworks */,
-				7231DE9721378B5A00A2C252 /* XCGLogger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,13 +732,17 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TalkersTalk/Pods-TalkersTalk-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
