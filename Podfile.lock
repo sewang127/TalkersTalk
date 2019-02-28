@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
-  - CryptoSwift (0.11.0)
+  - CryptoSwift (0.12.0)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
@@ -26,11 +26,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  CryptoSwift: ad5208dd2aae0a764ea4ce2c2d34bd067cae67f0
+  CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   XCGLogger: 4fc1bc0bdd5828cb8dc8da7a843536cda1bea8f3
 
-PODFILE CHECKSUM: 6a8ddcb8db185b80c5a16d87b3b45b9fb601773a
+PODFILE CHECKSUM: 49e7c3992fec3032e054ea38633a57e786037c87
 
 COCOAPODS: 1.5.3

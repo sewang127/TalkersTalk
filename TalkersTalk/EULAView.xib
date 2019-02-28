@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EULAView" customModule="Talkers_Talk" customModuleProvider="target">
+            <connections>
+                <outlet property="agreeButton" destination="Fc7-2O-4GK" id="GUp-br-oV3"/>
+                <outlet property="eulaWebView" destination="Qqp-gd-6Be" id="3Of-Wa-eZy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End User License Agreement" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzU-It-t50">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="VNO-0H-uwg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qqp-gd-6Be">
+                    <rect key="frame" x="0.0" y="40" width="300" height="200"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </webView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FvS-m7-TZO">
+                    <rect key="frame" x="0.0" y="240" width="300" height="60"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5l1-Bz-OsZ">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWb-N7-MTI">
+                            <rect key="frame" x="60" y="0.0" width="60" height="60"/>
+                            <color key="backgroundColor" red="1" green="0.73424317279999995" blue="0.23476574119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onCancelBtnClicked:" destination="-1" eventType="touchUpInside" id="3tx-rH-lJA"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DdQ-R4-dks">
+                            <rect key="frame" x="120" y="0.0" width="60" height="60"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fc7-2O-4GK">
+                            <rect key="frame" x="180" y="0.0" width="60" height="60"/>
+                            <color key="backgroundColor" red="1" green="0.73424317279999995" blue="0.23476574119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <state key="normal" title="I agree">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onAgreeBtnClicked:" destination="-1" eventType="touchUpInside" id="day-3n-BWO"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeF-Nl-CUU">
+                            <rect key="frame" x="240" y="0.0" width="60" height="60"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="fi8-fb-wua"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.86460600919999997" green="0.86460600919999997" blue="0.86460600919999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Qqp-gd-6Be" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Glh-5t-Dop"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="kzU-It-t50" secondAttribute="trailing" id="Mlt-Xv-e2m"/>
+                <constraint firstItem="kzU-It-t50" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Q4m-sW-2gf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="FvS-m7-TZO" secondAttribute="bottom" id="STl-ce-vnX"/>
+                <constraint firstItem="FvS-m7-TZO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Tei-Dx-4e9"/>
+                <constraint firstItem="Qqp-gd-6Be" firstAttribute="top" secondItem="kzU-It-t50" secondAttribute="bottom" id="WgM-aB-S2N"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FvS-m7-TZO" secondAttribute="trailing" id="WuY-PO-VQw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Qqp-gd-6Be" secondAttribute="trailing" id="nre-8H-Th4"/>
+                <constraint firstItem="FvS-m7-TZO" firstAttribute="top" secondItem="Qqp-gd-6Be" secondAttribute="bottom" id="oDU-hi-acv"/>
+                <constraint firstItem="kzU-It-t50" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rfU-Kx-60h"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="164" y="-181"/>
+        </view>
+    </objects>
+</document>
